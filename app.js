@@ -46,8 +46,72 @@ const addTeamMember = inquirer.prompt([
         name: "type",
         message: "Which type of employee are you entering into the system?",
         choices: ["Manager", "Engineer", "Intern", "None"],
-    }
+    },
 
-])
+    {
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of the employee?',
+        
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "What is the employee's ID?",
+        
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "What is the employee's email?",
+    },
+
+
+
+]).then((responses) => {
+    teamMemberDetails (responses) 
+ 
+});
+
+
+// const teamMemberDetails (responses) {
+
+//     const role =responses.role
+
+//     switch (role){
+
+//         case "Manager":
+//             console.log ("hello world")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     }
+
+
+
+// }
+
+
+//need to write Manager Const
+
+//then write Enigeer Const
+
+//then write intern const
 
 
