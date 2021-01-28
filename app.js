@@ -36,19 +36,18 @@ const teamProfiles = []
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
 
-// const addTeamMember = ()=>{
-// console.log ("hello world")
-// inquirer.prompt([
 
-//     {
-//         type: "list",
-//         name: "type",
-//         message: "Which type of employee are you entering into the system?",
-//         choices: ["Manager", "Engineer", "Intern", "None"],
-//     }
+console.log ("hello world")
 
-// ])
+const addTeamMember = inquirer.prompt([
 
-// }
+    {
+        type: "list",
+        name: "type",
+        message: "Which type of employee are you entering into the system?",
+        choices: ["Manager", "Engineer", "Intern", "None"],
+    }
 
-//
+])
+
+
