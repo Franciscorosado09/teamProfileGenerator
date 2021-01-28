@@ -37,13 +37,13 @@ const teamProfiles = []
 // for the provided `render` function to work! ```
 
 
-console.log ("hello world")
+console.log("hello world")
 
 const addTeamMember = inquirer.prompt([
 
     {
         type: "list",
-        name: "type",
+        name: "role",
         message: "Which type of employee are you entering into the system?",
         choices: ["Manager", "Engineer", "Intern", "None"],
     },
@@ -51,61 +51,81 @@ const addTeamMember = inquirer.prompt([
     {
         type: 'input',
         name: 'name',
-        message: 'What is the name of the employee?',
-        
+        message: 'Please provide the name of the new employee.',
+
     },
     {
         type: 'input',
         name: 'id',
-        message: "What is the employee's ID?",
-        
+        message: "Please provide the employee's ID.",
+
     },
     {
         type: 'input',
         name: 'email',
-        message: "What is the employee's email?",
+        message: "Please provide the employee's email.",
     },
 
 
 
 ]).then((responses) => {
-    teamMemberDetails (responses) 
- 
-});
+    const teamMemberDetails = (
+        responses.role,
+        responses.name,
+        responses.id,
+        responses.email
 
+    )
 
-// const teamMemberDetails (responses) {
-
-//     const role =responses.role
-
-//     switch (role){
-
-//         case "Manager":
-//             console.log ("hello world")
+})
 
 
 
+const teamMemberDetails = () => {
+
+console.log(responses)
+
+
+
+switch (role) {
+
+    case "Manager":
+        console.log("hello world")
+        inquirer.prompt([{
+            type: 'input',
+            name: 'office',
+            message: "Please provide the manager's office number."
+        }, ]);
+
+        break;
+
+    case "Engineer":
+        inquirer.prompt([{
+            type: 'input',
+            name: 'github',
+            message: "Please provide the enigneer's github username.",
+        }, ]);
+
+        break;
+
+    case "Intern":
+        inquirer.prompt([{
+            type: 'input',
+            name: 'schol',
+            message: "Please provide the intern's school name.",
+        }, ]);
+
+}
 
 
 
 
 
+}
 
 
 
 
-
-
-
-
-
-
-
-//     }
-
-
-
-// }
 
 
 //need to write Manager Const
@@ -113,5 +133,3 @@ const addTeamMember = inquirer.prompt([
 //then write Enigeer Const
 
 //then write intern const
-
-
