@@ -67,17 +67,18 @@ const addTeamMember = ()=> inquirer.prompt([
         type: "list",
         name: "role",
         message: "Which type of employee are you entering into the system?",
-        choices: ["Manager", "Engineer", "Intern", "None"],
+        choices: ["Manager", "Engineer", "Intern", "Exit Program"],
     },
 
 ]).then((data) => {
-    if (data.role == "Manager") {
+    if (data.role === "Manager") {
         addManager();
-    } else if (data.role == "Engineer") {
+    } else if (data.role === "Engineer") {
         addEngineer();
-    } else if (data.role == "Intern") {
+    } else if (data.role === "Intern") {
         addIntern();
-    } else if (data.role == "None") {
+    } else if (data.role === "Exit Program") {
+        createFile ();
 
     }
 
@@ -116,8 +117,8 @@ const addManager = () =>
 
 
 
-    ]).then((managerData) =>{
-     const manager = new Manager (managerData.name,managerData.id, managerData.email, managerData.officeNumber)
+    ]).then((data) =>{
+     const manager = new Manager (data.name, data.id, data.email, data.officeNumber)
      teamProfiles.push(manager)
     
      addTeamMember();
@@ -154,8 +155,8 @@ const addEngineer = () =>
 
 
 
-    ]).then((engineerData) =>{
-         const engineer = new Engineer (engineerData.name,engineerData.id, engineerData.email, engineerData.github)
+    ]).then((data) =>{
+         const engineer = new Engineer (data.name, data.id, data.email, data.github)
          teamProfiles.push(engineer)
         
          addTeamMember();
@@ -191,8 +192,8 @@ const addIntern = () =>
 
 
 
-    ]).then((internData) =>{
-         const intern = new Intern (internData.name,internData.id, internData.email, internData.school)
+    ]).then((data) =>{
+         const intern = new Intern (data.name, data.id, data.email, data.school)
          teamProfiles.push(intern)
         
          addTeamMember();
@@ -202,3 +203,8 @@ const addIntern = () =>
     
     
         
+const createFile = () =>{
+
+fs.writeFileSync(outputPath, render(teamProfiles), "utf-8");
+console.log("Generator complete. Please check output folders for your teams' profiles")
+}
