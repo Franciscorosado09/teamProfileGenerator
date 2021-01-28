@@ -9,6 +9,9 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const {
+    Console
+} = require("console");
 
 const teamProfiles = []
 
@@ -37,10 +40,29 @@ const teamProfiles = []
 // for the provided `render` function to work! ```
 
 
-console.log("hello world")
 
-const addTeamMember = inquirer.prompt([
+const confirmManager =
+inquirer.prompt ([
+{
+    type: "list",
+    name: "confirm",
+    message: "Welcome to the TeamGenerator, if this your first time entering employees will you confirm you will begin with adding a Manager in the system",
+    choices: ["Confirm", "Exit Program"],
+}
 
+]).then((data) => {
+    if (data.confirm == "Confirm") {
+        addTeamMember();
+    } else if (data.role == "Exit Program") {
+       
+
+    }
+})
+
+
+const addTeamMember = ()=> inquirer.prompt([
+
+    
     {
         type: "list",
         name: "role",
@@ -48,88 +70,135 @@ const addTeamMember = inquirer.prompt([
         choices: ["Manager", "Engineer", "Intern", "None"],
     },
 
-    {
-        type: 'input',
-        name: 'name',
-        message: 'Please provide the name of the new employee.',
+]).then((data) => {
+    if (data.role == "Manager") {
+        addManager();
+    } else if (data.role == "Engineer") {
+        addEngineer();
+    } else if (data.role == "Intern") {
+        addIntern();
+    } else if (data.role == "None") {
 
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: "Please provide the employee's ID.",
-
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: "Please provide the employee's email.",
-    },
-
-
-
-]).then((responses) => {
-    const teamMemberDetails = (
-        responses.role,
-        responses.name,
-        responses.id,
-        responses.email
-
-    )
+    }
 
 })
-
-
-
-const teamMemberDetails = () => {
-
-console.log(responses)
-
-
-
-switch (role) {
-
-    case "Manager":
-        console.log("hello world")
-        inquirer.prompt([{
-            type: 'input',
-            name: 'office',
-            message: "Please provide the manager's office number."
-        }, ]);
-
-        break;
-
-    case "Engineer":
-        inquirer.prompt([{
-            type: 'input',
-            name: 'github',
-            message: "Please provide the enigneer's github username.",
-        }, ]);
-
-        break;
-
-    case "Intern":
-        inquirer.prompt([{
-            type: 'input',
-            name: 'schol',
-            message: "Please provide the intern's school name.",
-        }, ]);
-
-}
-
-
-
-
-
-}
-
-
 
 
 
 
 //need to write Manager Const
 
-//then write Enigeer Const
+const addManager = () =>
+    inquirer.prompt([
 
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Please provide the name of the employee.',
+
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Please provide the employee's ID.",
+
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Please provide the employee's email.",
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: "Please provide the manager's office number.",
+        },
+
+
+
+    ]).then((managerData) =>{
+     const manager = new Manager (managerData.name,managerData.id, managerData.email, managerData.officeNumber)
+     teamProfiles.push(manager)
+    
+     addTeamMember();
+    
+    }
+    )
+//then write Enigeer Const
+const addEngineer = () =>
+
+    inquirer.prompt([
+
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Please provide the name of the employee.',
+
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Please provide the employee's ID.",
+
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Please provide the employee's email.",
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "Please provide the engineer's github.",
+        },
+
+
+
+    ]).then((engineerData) =>{
+         const engineer = new Engineer (engineerData.name,engineerData.id, engineerData.email, engineerData.github)
+         teamProfiles.push(engineer)
+        
+         addTeamMember();
+        
+        })
 //then write intern const
+
+const addIntern = () =>
+    inquirer.prompt([
+
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Please provide the name of the employee.',
+
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Please provide the employee's ID.",
+
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Please provide the employee's email.",
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Please provide the intern's school name.",
+        },
+
+
+
+    ]).then((internData) =>{
+         const intern = new Intern (internData.name,internData.id, internData.email, internData.school)
+         teamProfiles.push(intern)
+        
+         addTeamMember();
+        
+        })
+
+    
+    
+        
