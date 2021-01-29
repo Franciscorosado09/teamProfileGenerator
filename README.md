@@ -34,7 +34,7 @@ so that I have quick access to emails and GitHub profiles
 
 link to github: https://github.com/Franciscorosado09/ReadmeGenerator
 
-Link to video: 
+Link to video: https://drive.google.com/file/d/1oW2jAIC8u8guvOvCohIGhOZ6g3SGJx2r/view
 
 
 ## Testing
