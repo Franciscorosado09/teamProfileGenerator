@@ -111,17 +111,40 @@ const addManager = () =>
             type: 'input',
             name: 'id',
             message: "Please provide the employee's ID.",
+            validate: (responseInfo) => {
+                if (/^([1-9])$/.test(responseInfo)) {
+                    return true
+                }
+                else {
+                    return "Please enter only numbers between 1-9."
+                }}
 
         },
         {
             type: 'input',
             name: 'email',
             message: "Please provide the employee's email.",
+            validate: (responseInfo) =>
+            { if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(responseInfo)){
+                return true
+            }
+            else{
+                return "Please provide valid email"
+            }
+
+            }
         },
         {
             type: 'input',
             name: 'officeNumber',
             message: "Please provide the manager's office number.",
+            validate: (responseInfo) => {
+                if (/^([1-9])$/.test(responseInfo)) {
+                    return true
+                }
+                else {
+                    return "Please enter only numbers between 1-9."
+                }}
         },
 
 
@@ -159,17 +182,44 @@ const addEngineer = () =>
             type: 'input',
             name: 'id',
             message: "Please provide the employee's ID.",
+            validate: (responseInfo) => {
+                if (/^([1-9])$/.test(responseInfo)) {
+                    return true
+                }
+                else {
+                    return "Please enter only numbers between 1-9."
+                }}
 
         },
         {
             type: 'input',
             name: 'email',
             message: "Please provide the employee's email.",
+            validate: (responseInfo) =>
+            { if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(responseInfo)){
+                return true
+            }
+            else{
+                return "Please provide valid email"
+            }
+
+            }
         },
         {
             type: 'input',
             name: 'github',
-            message: "Please provide the engineer's github.",
+            message: "Please provide the engineer's github username.",
+            validate: (responseInfo) =>
+            { if (responseInfo){
+                return true
+            }
+            else{
+                return "Please provide name of engineer's username"
+            }
+
+            }
+
+            
         },
 
 
@@ -206,17 +256,42 @@ const addIntern = () =>
             type: 'input',
             name: 'id',
             message: "Please provide the employee's ID.",
+            validate: (responseInfo) => {
+                if (/^([1-9])$/.test(responseInfo)) {
+                    return true
+                }
+                else {
+                    return "Please enter only numbers between 1-9."
+                }}
 
         },
         {
             type: 'input',
             name: 'email',
             message: "Please provide the employee's email.",
+            validate: (responseInfo) =>
+            { if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(responseInfo)){
+                return true
+            }
+            else{
+                return "Please provide valid email"
+            }
+
+            }
         },
         {
             type: 'input',
             name: 'school',
             message: "Please provide the intern's school name.",
+            validate: (responseInfo) =>
+            { if (responseInfo){
+                return true
+            }
+            else{
+                return "Please provide name of intern's school."
+            }
+
+            }
         },
 
 
