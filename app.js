@@ -95,7 +95,16 @@ const addManager = () =>
         {
             type: 'input',
             name: 'name',
-            message: 'Please provide the name of the employee.',
+            message: 'Please provide the name of the manager.',
+            validate: (responseInfo) =>
+            { if (responseInfo){
+                return true
+            }
+            else{
+                return "Please provide name of Manager"
+            }
+
+            }
 
         },
         {
@@ -133,7 +142,17 @@ const addEngineer = () =>
         {
             type: 'input',
             name: 'name',
-            message: 'Please provide the name of the employee.',
+            message: 'Please provide the name of the engineer.',
+            validate: (responseInfo) =>
+            { if (responseInfo){
+                return true
+            }
+            else{
+                return "Please provide name of engineer"
+            }
+
+            }
+
 
         },
         {
@@ -170,7 +189,17 @@ const addIntern = () =>
         {
             type: 'input',
             name: 'name',
-            message: 'Please provide the name of the employee.',
+            message: 'Please provide the name of the intern.',
+            validate: (responseInfo) =>
+            { if (responseInfo){
+                return true
+            }
+            else{
+                return "Please provide name of intern"
+            }
+
+            }
+
 
         },
         {
