@@ -2,6 +2,16 @@
 
 
 ## Screenshots
+![finalproduct](./screenshots/finalproduct.png)
+![terminalPrompts](./screenshots/terminalPrompts.png)
+![tests](./screenshots/tests.png)
+
+
+## Installation
+
+1. Load Packages: npm i
+2. Run app: node app.js
+
 
 
 ## The Task
@@ -27,9 +37,11 @@ link to github: https://github.com/Franciscorosado09/ReadmeGenerator
 Link to video: 
 
 
+## Testing
 
+*** npm test
 
-## Mock-Up
+## FAQ/resources
 
     * Startercode GW Bootcamp
     * W3 schools, Stackoverflow, BCS, and WebMd 
